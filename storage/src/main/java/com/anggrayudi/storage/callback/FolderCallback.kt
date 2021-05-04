@@ -14,13 +14,11 @@ import kotlinx.coroutines.CancellableContinuation
 interface FolderCallback {
 
     @WorkerThread
-    @JvmDefault
     fun onPrepare() {
         // default implementation
     }
 
     @WorkerThread
-    @JvmDefault
     fun onCountingFiles() {
         // default implementation
     }
@@ -31,7 +29,6 @@ interface FolderCallback {
      * Setting negative value will cancel the operation.
      */
     @WorkerThread
-    @JvmDefault
     fun onStart(folder: DocumentFile, totalFilesToCopy: Int): Long = 0
 
     /**
@@ -46,7 +43,6 @@ interface FolderCallback {
      *                 This happens if the destination is a file, an empty folder, or a folder without content conflicts.
      */
     @UiThread
-    @JvmDefault
     fun onConflict(destinationFolder: DocumentFile, action: FolderConflictAction, canMerge: Boolean) {
         action.confirmResolution(ConflictResolution.CREATE_NEW)
     }
@@ -59,7 +55,6 @@ interface FolderCallback {
      * @return `true` to continue process
      */
     @WorkerThread
-    @JvmDefault
     fun onCheckFreeSpace(freeSpace: Long, fileSize: Long): Boolean {
         return fileSize + 100 * FileSize.MB < freeSpace // Give tolerant 100MB
     }
@@ -72,7 +67,6 @@ interface FolderCallback {
      * @param fileCount total files/folders that are successfully copied/moved
      */
     @WorkerThread
-    @JvmDefault
     fun onReport(progress: Float, bytesMoved: Long, writeSpeed: Int, fileCount: Int) {
         // default implementation
     }
@@ -86,13 +80,11 @@ interface FolderCallback {
      * @param totalCopiedFiles total files, not folders
      */
     @WorkerThread
-    @JvmDefault
     fun onCompleted(folder: DocumentFile, totalFilesToCopy: Int, totalCopiedFiles: Int, success: Boolean) {
         // default implementation
     }
 
     @WorkerThread
-    @JvmDefault
     fun onFailed(errorCode: ErrorCode) {
         // default implementation
     }
