@@ -102,7 +102,7 @@ fun File.createNewFileIfPossible(): Boolean = try {
  * Read [this issue](https://github.com/anggrayudi/SimpleStorage/issues/24#issuecomment-830000378)
  */
 val File.isWritable: Boolean
-    get() = canWrite() && (isFile)
+    get() = canWrite() && (isFileZ)
 
 /**
  * Create file and if exists, increment file name.
