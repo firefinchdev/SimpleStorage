@@ -81,5 +81,3 @@ ext {
     POM_DEVELOPER_NAME = "Anggrayudi H"
     POM_DEVELOPER_URL = "https://github.com/anggrayudi/"
 }
-
-apply plugin: "com.vanniktech.maven.publish"
